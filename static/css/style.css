@@ -1,0 +1,43 @@
+body {
+  background-color: #aaaaaa;
+}
+
+footer {
+    align: center;
+}
+
+.btn {
+    background-color: transparent;
+}
+
+.galleryitem {
+    width: 400px;
+    height: 400px;
+}
+
+.modal_button {
+    width: 100px;
+    font-size: 200px;
+    /*font-weight: 100;*/
+    background: transparent;
+    border: 0;
+}
+
+.numPhotosinAlbum {
+    display: inline;
+}
+
+.albumFooter {
+    text-align: center;
+}
+
+.modalImageBox {
+    width: 1100px;
+    align-self: center;
+    text-align: center;
+}
+
+#my_image {
+    max-height: 100%;
+    max-width: 100%;
+}

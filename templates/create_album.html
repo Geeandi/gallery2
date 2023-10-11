@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+    <center>
+        <h1> Create New Album  </h1>
+        <br>
+        {% if submitted %}
+            New Album Successfully Created!
+        {% else %}
+
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <input type="submit" value="Create Album" class="btn btn-primary">
+            </form>
+        {% endif %}
+
+
+    </center>
+{% else %}
+<h1>Sorry! You Must Be Logged In To View This Page...</h1>
+
+<a href="{% url 'login' %}">Login Here</a>
+{% endif %}
+
+
+{% endblock %}

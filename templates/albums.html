@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<center><h1>Welcome</h1></center>
+<h2>Albums</h2>
+<br>
+<br>
+<div name="gallery" class="d-flex flex-row flex-wrap my-flex-container justify-content-start mx-3">
+    <br>
+    {% for photo in photos %}
+        <div>
+            <button onclick="window.location.href = 'album/{{photo.0.album.id}}'" type="button" class="btn m-0 p-0 imginfo" >
+                <img src="{{ photo.0.file.url }}" class="rounded px-1 py-1 galleryitem" alt="{{ photo.description }}" accesskey="{{ photo.0.album.id }}">
+            </button>
+            <br>
+            <div class="albumFooter"><h5 class="numPhotosinAlbum">{{ photo.0.album }}</h5> - {{photo|length}} </div>
+        </div>
+        <br>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

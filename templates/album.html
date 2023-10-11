@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <center><h2> {{photos.0.album}} </h2></center>
+    <div name="gallery" class="d-flex flex-row flex-wrap my-flex-container justify-content-start mx-3">
+        <br>
+        {% for photo in photos %}
+            <button type="button" class="btn m-0 p-0 imginfo" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="{{ photo.file.url }}" class="rounded px-1 py-1 galleryitem" alt="{{ photo.description }}" accesskey="{{ forloop.counter0 }}">
+            </button>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Fuerteventura</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+          <button class="modal_button" value="previous">&lsaquo;</button>
+          <div class="modalImageBox">
+              <img id="my_image" src="{{ photos.0.file.url }}" class="rounded" alt="{{ photos.0.description }}">
+          </div>
+          <button class="modal_button" value="next">&rsaquo;</button>
+      </div>
+      <div class="modal-footer">
+        <div class="mx-auto">
+            <h6 id="modaltext">{{ photos.0.description }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
